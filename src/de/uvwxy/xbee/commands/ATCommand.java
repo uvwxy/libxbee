@@ -2,8 +2,6 @@ package de.uvwxy.xbee.commands;
 
 import java.util.HashMap;
 
-import de.uvwxy.xbee.apimode.messages.MessageID;
-
 public enum ATCommand {
 	CMD_A1 ("A1"),
 	CMD_A2 ("A2"),

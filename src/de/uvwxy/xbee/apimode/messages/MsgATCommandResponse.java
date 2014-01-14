@@ -2,13 +2,13 @@ package de.uvwxy.xbee.apimode.messages;
 
 import java.util.HashMap;
 
-import android.widget.BaseExpandableListAdapter;
-
+import android.annotation.SuppressLint;
 import de.uvwxy.xbee.commands.ATCommand;
 
+@SuppressLint("UseSparseArrays")
 public class MsgATCommandResponse extends APIMessage {
 
-	private static String INFO = "The “AT Command” API type allows for module parameters to be queried or set. When using this command ID, new parameter values are applied immediately. This includes any register set with the “AT Command - Queue Parameter Value” (0x09) API type.";
+	private static String INFO = "The â€œAT Commandâ€� API type allows for module parameters to be queried or set. When using this command ID, new parameter values are applied immediately. This includes any register set with the â€œAT Command - Queue Parameter Valueâ€� (0x09) API type.";
 	private static String TITLE = "AT Command";
 	private static final int ID = MessageID.MSG_AT_COMMAND_RESPONSE.value;
 

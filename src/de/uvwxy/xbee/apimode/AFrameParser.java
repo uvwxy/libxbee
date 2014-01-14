@@ -96,7 +96,6 @@ public abstract class AFrameParser {
 	private boolean readStartDelimiter(UnboundedFifoByteBuffer fifo) {
 		// read until start delimiter
 		byte head = ~XBEE_FRAME_DELIMITER;
-		int loopCount = 0;
 		while (head != XBEE_FRAME_DELIMITER) {
 			try {
 				// access fifo directly as no escaping need if

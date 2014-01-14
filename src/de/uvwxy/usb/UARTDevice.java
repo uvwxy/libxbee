@@ -1,9 +1,11 @@
 package de.uvwxy.usb;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
+import android.os.Build;
 import android.util.Log;
 
 import com.ftdi.j2xx.D2xxManager;
@@ -78,6 +80,7 @@ public abstract class UARTDevice {
 		return true;
 	}
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
 	public static UsbDevice getUSBDevice(Intent intent) {
 		return (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
 	}
@@ -242,7 +245,7 @@ public abstract class UARTDevice {
 		@Override
 		public void run() {
 			byte[] lCOPY_BUFFER = new byte[THREAD_BYTE_COPY_BUFFER_SIZE];
-			int x = 0;
+			
 			while (mFTDevice != null && isRunning()) {
 				int availableBytes = mFTDevice.getQueueStatus();
 
@@ -260,7 +263,6 @@ public abstract class UARTDevice {
 					for (int i = 0; i < readBytes; i++) {
 						fifo.add(lCOPY_BUFFER[i]);
 					}
-					x = 0;
 				} else {
 					//					if (x < 10){
 					//						Log.i("COPYBUFFER", "Sleep");
@@ -268,7 +270,7 @@ public abstract class UARTDevice {
 					//					}
 
 					if (!mFTDevice.isOpen()) {
-						Log.i("COPYBUFFER", "Device is closed");
+						Log.d("COPYBUFFER", "Device is closed");
 						running = false;
 					}
 					//					try {

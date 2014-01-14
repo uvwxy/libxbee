@@ -69,6 +69,12 @@ public abstract class APIMessage extends ByteArrayWrapper {
 			m = new MsgZigBeeReceivePacket(data);
 		case MSG_UNKNOWN:
 			break;
+		case ZIGBEE_EXPLICIT_RX_INDICATOR:
+			// TODO!
+			break;
+		default:
+			// TODO!
+			break;
 
 		}
 

@@ -1,6 +1,5 @@
 package de.uvwxy.xbee.apimode;
 
-import android.util.Log;
 import de.uvwxy.opensource.UnboundedFifoByteBuffer;
 
 public class FrameParserEscaped extends AFrameParser {
